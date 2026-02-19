@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>STC Tool - Download</title>
+    <style>
+        body {
+            background-color: #11315A; /* Your Hex Code */
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #ffffff;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            text-align: center;
+            padding: 20px;
+        }
+
+        /* Catchy Words / Header */
+        h1 {
+            font-size: 2.2rem;
+            margin-bottom: 8px;
+            color: #ffffff;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+
+        p.sub-text {
+            color: #a0b1c5;
+            margin-bottom: 40px;
+            font-size: 1.1rem;
+        }
+
+        /* The Download Card */
+        .download-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 50px 40px;
+            backdrop-filter: blur(10px);
+            max-width: 400px;
+            margin: 0 auto;
+            transition: all 0.3s ease;
+        }
+
+        .download-card:hover {
+            border-color: #f0ad4e;
+            transform: translateY(-5px);
+        }
+
+        /* The Icon Link */
+        .file-icon-link {
+            text-decoration: none;
+            color: #f0ad4e;
+            display: block;
+            margin-bottom: 30px;
+        }
+
+        .file-icon-link svg {
+            width: 100px;
+            height: 100px;
+            transition: transform 0.2s ease;
+        }
+
+        .file-icon-link:hover svg {
+            transform: scale(1.05);
+        }
+
+        .file-label {
+            display: block;
+            margin-top: 15px;
+            color: #ffffff;
+            font-weight: 500;
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        /* The Button */
+        .download-button {
+            background-color: #f0ad4e;
+            color: #11315A;
+            padding: 14px 35px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            display: inline-block;
+            box-shadow: 0 4px 15px rgba(240, 173, 78, 0.3);
+            transition: background-color 0.2s, box-shadow 0.2s;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+        }
+
+        .download-button:hover {
+            background-color: #ec971f;
+            box-shadow: 0 6px 20px rgba(240, 173, 78, 0.5);
+        }
+
+        .back-link {
+            margin-top: 30px;
+            display: block;
+            color: rgba(255, 255, 255, 0.5);
+            text-decoration: none;
+            font-size: 0.85rem;
+        }
+
+        .back-link:hover {
+            color: #f0ad4e;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Analysis Completed!</h1>
+        <p class="sub-text">Your STC data has been successfully segregated.</p>
+
+        <div class="download-card">
+            <a href="{{ url_for('download_file', filename=filename) }}" class="file-icon-link">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                </svg>
+                <span class="file-label">PROCESSED_DATA.XLSX</span>
+            </a>
+
+            <a href="{{ url_for('download_file', filename=filename) }}" class="download-button">
+                Download Processed File
+            </a>
+        </div>
+
+        <a href="/" class="back-link">Return to Home</a>
+    </div>
+
+</body>
+</html>
